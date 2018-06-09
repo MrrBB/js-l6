@@ -48,16 +48,16 @@
 			<input class="choose-item" type="text" id="items">
 
 			<div class="time">Если 'Открыто' помечено зеленым - открыт, если красным - закрыт!</div>
-			<input class="time-value" type="text" id="time" value="наведите курсор" readonly>
+			<input class="time-value" type="text" id="time" value="введите время">
 
 			<div class="count-budget">Расчет дневного бюджета</div>
 			<input class="count-budget-value" type="text" id="budget" readonly>
 			<button class="count-budget-btn">Рассчитать</button>
 
 			<div class="hire-employers">Имена сотрудников</div>
-			<input class="hire-employers-item" type="text" id="employers_1">
-			<input class="hire-employers-item" type="text" id="employers_2">
-			<input class="hire-employers-item" type="text" id="employers_3">
+			<input class="hire-employers-item" type="text" id="employers_1" onkeyup="if(!/^[А-Я][а-я]*/.test(this.value)) {this.value='';}">
+			<input class="hire-employers-item" type="text" id="employers_2" onkeyup="if(!/^[А-Я][а-я]*/.test(this.value)) {this.value='';}">
+			<input class="hire-employers-item" type="text" id="employers_3" onkeyup="if(!/^[А-Я][а-я]*/.test(this.value)) {this.value='';}">
 			<button class="hire-employers-btn">Нанять</button>
 			
 			<div class="discount-System">

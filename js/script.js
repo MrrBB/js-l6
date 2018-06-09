@@ -1,5 +1,6 @@
 let	monthlyIncome,
 	price,
+	name,
 	open = document.getElementById('open-btn'),
 	name_value = document.getElementsByClassName('name-value')[0],
 	budget_value = document.getElementsByClassName('budget-value')[0],
@@ -48,12 +49,17 @@ discountCheck.addEventListener('click', () =>{
 
 
 open.addEventListener('click', function f1() {
+
 while(isNaN(monthlyIncome) || monthlyIncome == '' || monthlyIncome == null) {
 		monthlyIncome = prompt("Ваш бюджет на месяц?", '');
 	}
 	budget_value.textContent = monthlyIncome;
-	
-	name_value.textContent = prompt("Название вашего магазина?", '').toUpperCase();
+	while(name == null || name == ''){
+			name = prompt("Название вашего магазина?", '');
+		}
+
+	name_value.textContent = name;
+
 
 });
 
@@ -91,9 +97,9 @@ itemsInput.addEventListener('change', () =>{
 timeInput.style.textAlign = 'center';
 timeInput.addEventListener('mouseenter', () => {
 	//время определяется автоматически) т - технологии 
-		let d = new Date(),
-			time = d.getHours();
-		// let time = timeInput.value;
+		// let d = new Date(),
+		// 	time = d.getHours();
+		let time = timeInput.value;
 		if (time < 0) {
 			console.log('токаого не может быть ');
 			mainList.open = false;
