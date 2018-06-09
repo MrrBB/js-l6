@@ -21,9 +21,9 @@ let	monthlyIncome,
 	dailyBudget = document.getElementById('budget'),
 	employers = document.querySelectorAll('.hire-employers-item');
 
-		goods_btn.disabled = true;
-		budget_btn.disabled = true;
-		employers_btn.disabled = true;
+	goods_btn.disabled = true;
+	budget_btn.disabled = true;
+	employers_btn.disabled = true;
 
 //для определения скидки
 function discountF(){
@@ -97,7 +97,7 @@ timeInput.addEventListener('mouseenter', () => {
 		if (time < 0) {
 			console.log('токаого не может быть ');
 			mainList.open = false;
-		} else if(time > 8 && time < 20) {
+		} else if(time > 8 && time < 21) {
 			console.log('время работать!');
 			mainList.open = true;
 			}  else if (time < 24) {
@@ -126,19 +126,25 @@ budget_btn.addEventListener('click', () =>{
 
 
 
+		employers_btn.onclick = function(e){
+		employers_value.innerHTML = "";
+		}
+
 
 employers_btn.addEventListener('click', () =>{
+		
+
 		for (let i = 0; i < employers.length; i++){
 		let employer_name = employers[i].value;
         mainList.employers[i] = employer_name;
 		employers_value.textContent += mainList.employers[i] + ',';
-		}
+		// delete mainList.employers[i];
+		};
+		console.log(mainList.employers)
+		// replObj()
 })
 
-
-
-
-let mainList = {
+var mainList = {
 	budget: monthlyIncome,
 	name: name,
 	shopGoods: [],
