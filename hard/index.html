@@ -45,8 +45,29 @@
 			<input class="goods-item" type="text" id="goods_4">
 			<button class="goods-item-btn">Утвердить</button>
 
+
+
+
+
+
+
+
 			<div class="choose-items">Введите продукты через запятую</div>
-			<input class="choose-item" type="text" id="items">
+			<input class="choose-item" type="text" id="items" onkeyup="if(!/^[А-Я][а-я]*/.test(this.value)) {alert('Неверный формат ввода'); this.value='';}"
+>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 			<div class="time">Если 'Открыто' помечено зеленым - открыт, если красным - закрыт!</div>
 			<input class="time-value" type="text" id="time" value="наведите курсор" readonly>

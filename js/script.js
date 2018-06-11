@@ -50,7 +50,12 @@ discountCheck.addEventListener('click', () =>{
 
 open.addEventListener('click', function f1() {
 
-while(isNaN(monthlyIncome) || monthlyIncome == '' || monthlyIncome == null) {
+	let timer = setTimeout(start, 2000)
+
+});
+
+function start() {
+	while(isNaN(monthlyIncome) || monthlyIncome == '' || monthlyIncome == null) {
 		monthlyIncome = prompt("Ваш бюджет на месяц?", '');
 	}
 	budget_value.textContent = monthlyIncome;
@@ -59,11 +64,7 @@ while(isNaN(monthlyIncome) || monthlyIncome == '' || monthlyIncome == null) {
 		}
 
 	name_value.textContent = name;
-
-
-});
-
-
+}
 
 goods_btn.addEventListener('click', () => {
 	for (let i = 0; i < goods_item.length; i++){
@@ -79,15 +80,19 @@ goods_btn.addEventListener('click', () => {
 
 
 itemsInput.addEventListener('change', () =>{
-	let items = itemsInput.value;				
+	let items = itemsInput.value;
+	items = items.replace(/\,{2,100}/g, ',');	
+			if(items.length < 100){
 			if(!isNaN(items) || items != '') {
-				mainList.shopItems = items.split(',');
-				mainList.shopItems.sort();
-				items_value.textContent =	mainList.shopItems;	
+				mainList.shopItems = items;
+				items_value.textContent +=	mainList.shopItems;	
 				} 
 		
 				// mainList.shopItems.sort();
 			console.log('всё правильно')
+			} else {
+				alert('длина списка не может быть больше 100 символов!')
+			}
 		});
 
 
